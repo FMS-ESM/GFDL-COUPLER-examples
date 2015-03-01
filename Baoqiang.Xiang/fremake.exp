@@ -1,0 +1,2 @@
+#module load fre/bronx-8
+fremake -F -x CM4_proto.xml -p ncrc2.intel -t prod-openmp cm4p3_v20141222

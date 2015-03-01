@@ -1,0 +1,11 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.64  
+ !   - 12/07/10
+ ! 26-Jan-15 14:21     
+
+use "/lustre/f1/Baoqiang.Xiang/work/CM4_c96L48_am4a1r1_2000climo_sstor_uvnudg.o6893808/INPUT/hadisst_sst.data.nc
+use "/lustre/f1/Baoqiang.Xiang/work/CM4_c96L48_am4a1r1_2000climo_sstor_uvnudg.o6893808/INPUT/hadisst_sst.data.nc"
+sh d
+fill/l=1700 sst
+g land
+q

@@ -1,0 +1,139 @@
+
+&aerosol_nml
+    use_aerosol_timeseries = .false.
+    aerosol_dataset_entry =  2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+                             2000 1 1 0 0 0,
+    family_names = "small_dust", "large_dust", "sulfate", "aerosol"
+    in_family1 = F,F,F,T,T,T,T,F,T,F,F,F,
+    in_family2 = F,F,F,F,F,F,F,F,F,T,T,T,
+    in_family3 = T,F,F,F,F,F,F,F,F,F,F,F,
+    in_family4 = T,T,T,T,T,T,T,T,T,T,T,T,
+    data_names = "so4", "black_carbon", "organic_carbon", "dust_0.1",
+                 "dust_0.2", "dust_0.4", "dust_0.8", "sea_salt",
+                 "dust_1.0", "dust_2.0", "dust_4.0", "dust_8.0",
+    filename = "aerosol.climatology.nc"
+/
+
+ &aerosolrad_package_nml
+    volcanic_dataset_entry = 2000 1 1 0 0 0
+    using_volcanic_lw_files = .false. ! .true.,
+    lw_ext_filename = "extlw_data.nc"
+    lw_ext_root = "extlw"
+    lw_asy_filename = "             "
+    lw_asy_root = "     "
+    lw_ssa_filename = "             "
+    lw_ssa_root = "     "
+    using_volcanic_sw_files = .false.,
+    sw_ext_filename = "extsw_data.nc"
+    sw_ext_root = "extsw"
+    sw_ssa_filename = "omgsw_data.nc"
+    sw_ssa_root = "omgsw"
+    sw_asy_filename = "asmsw_data.nc"
+    sw_asy_root = "asmsw"
+    do_lwaerosol = .true.,
+    do_swaerosol = .true.,
+    aerosol_data_set = 'shettle_fenn',
+    optical_filename = "aerosol.optical.dat",
+    aerosol_optical_names = "sulfate_30%", "sulfate_35%", "sulfate_40%", "sulfate_45%",
+                            "sulfate_50%", "sulfate_55%", "sulfate_60%", "sulfate_65%",
+                            "sulfate_70%", "sulfate_75%", "sulfate_80%", "sulfate_82%",
+                            "sulfate_84%", "sulfate_86%", "sulfate_88%", "sulfate_90%",
+                            "sulfate_91%", "sulfate_92%", "sulfate_93%", "sulfate_94%",
+                            "sulfate_95%", "sulfate_96%", "sulfate_97%", "sulfate_98%",
+                            "sulfate_99%", "sulfate_100%","organic_carbon","soot",
+                            "sea_salt",    "dust_0.1",    "dust_0.2",    "dust_0.4",
+                            "dust_0.8",    "dust_1.0",    "dust_2.0",    "dust_4.0",
+                            "dust_8.0"
+/
+
+ &ozone_nml
+      basic_ozone_type = 'fixed_year' ,
+      ozone_dataset_entry = 2000,1,1,0,0,
+      data_name = "ozone",
+      filename = "o3.climatology.nc"
+      do_coupled_stratozone=.false.
+/
+
+ &radiation_driver_nml
+      using_restart_file = .false.
+      rad_time_step= 3600,
+      time_varying_solar_constant = .true.,
+      solar_dataset_entry = 2000 1 1 0 0 0
+      rad_package = 'sea_esf',
+      do_clear_sky_pass=.true.,
+      calc_hemi_integrals = .false.,
+      renormalize_sw_fluxes=.true.,
+      all_step_diagnostics = .true.,
+      zenith_spec = 'diurnally_varying'
+/
+
+ &radiative_gases_nml
+      verbose = 3
+      gas_printout_freq = 240
+
+      time_varying_co2 = .false.,
+      co2_variation_type = 'linear',
+      co2_dataset_entry = 2000,1,1,0,0,
+      co2_specification_type = 'time_series',
+      co2_floor = 100.0E-06,
+      co2_ceiling = 1600.0E-06,
+      co2_data_source = 'input'
+
+      time_varying_ch4 = .false.,
+      ch4_variation_type = 'linear'
+      ch4_dataset_entry = 2000,1,1,0,0,
+      ch4_specification_type = 'time_series'
+      ch4_data_source = 'input'
+
+      time_varying_n2o = .false.,
+      n2o_variation_type = 'linear'
+      n2o_dataset_entry = 2000,1,1,0,0,
+      n2o_specification_type = 'time_series'
+      n2o_data_source = 'input'
+
+      time_varying_f11 = .false.,
+      f11_variation_type = 'linear'
+      f11_dataset_entry = 2000,1,1,0,0,
+      f11_specification_type = 'time_series'
+      f11_data_source = 'input'
+
+      time_varying_f12 = .false.,
+      f12_variation_type = 'linear'
+      f12_dataset_entry = 2000,1,1,0,0,
+      f12_specification_type = 'time_series'
+      f12_data_source = 'input'
+
+      time_varying_f113 = .false.,
+      f113_variation_type = 'linear'
+      f113_dataset_entry = 2000,1,1,0,0,
+      f113_specification_type = 'time_series'
+      f113_data_source = 'input'
+
+      time_varying_f22 = .false.,
+      f22_variation_type = 'linear'
+      f22_dataset_entry = 2000,1,1,0,0,
+      f22_specification_type = 'time_series'
+      f22_data_source = 'input'
+/
+
+/
+
+ &vegn_nml
+      init_Tv = 288.0
+      rad_to_use = 'two-stream'
+      photosynthesis_to_use = 'leuning'
+      snow_rad_to_use = 'paint-leaves'
+      co2_to_use_for_photosynthesis ='prescribed'
+      co2_for_photosynthesis = 368.11e-6
+/
+

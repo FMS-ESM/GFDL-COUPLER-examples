@@ -1,0 +1,106 @@
+2)
+fv_restart from
+gfdl_W/Lucas.Harris/IC/c96/
+
+land.res from 
+IC/CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903.tar
+
+NOTE from PE     0: land_model_init: reading NetCDF restart "INPUT/land.res.tile1.nc"
+NOTE from PE     0: land_model_init: Using new land restart read
+NOTE from PE     0: MPP_IO_SET_STACK_SIZE: stack size set to    4147200.
+NOTE from PE     0: MPP_IO_SET_STACK_SIZE: stack size set to    9331200.
+NOTE from PE     0: soil_init: Using new soil restart read
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source
+fms_cm4p3_v201412  0000000002968FD7  cohort_io_mod_mp_         199  vegn_cohort_io.F90
+fms_cm4p3_v201412  000000000297EC6F  vegetation_mod_mp         314  vegetation.F90
+fms_cm4p3_v201412  0000000002809735  land_model_mod_mp         446  land_model.F90
+fms_cm4p3_v201412  000000000040A77C  coupler_main_IP_c        1624  coupler_main.F90
+fms_cm4p3_v201412  0000000000400B11  MAIN__                    454  coupler_main.F90
+fms_cm4p3_v201412  000000000040072C  Unknown               Unknown  Unknown
+fms_cm4p3_v201412  0000000003496F04  Unknown               Unknown  Unknown
+fms_cm4p3_v201412  000000000040059D  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+
+3)
+0[509]0 gaea3:/<4>Benjei.Tsuang/IC/c96o1 > cp -p ../CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903/vegn* .
+
+
+NOTE from PE     0: land_model_init: reading NetCDF restart "INPUT/land.res.tile1.nc"
+NOTE from PE     0: land_model_init: Using new land restart read
+NOTE from PE     0: MPP_IO_SET_STACK_SIZE: stack size set to    4147200.
+NOTE from PE     0: MPP_IO_SET_STACK_SIZE: stack size set to    9331200.
+NOTE from PE     0: soil_init: Using new soil restart read
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source
+fms_cm4p3_v201412  0000000002968FD7  cohort_io_mod_mp_         199  vegn_cohort_io.F90
+fms_cm4p3_v201412  000000000297EC6F  vegetation_mod_mp         314  vegetation.F90
+fms_cm4p3_v201412  0000000002809735  land_model_mod_mp         446  land_model.F90
+fms_cm4p3_v201412  000000000040A77C  coupler_main_IP_c        1624  coupler_main.F90
+fms_cm4p3_v201412  0000000000400B11  MAIN__                    454  coupler_main.F90
+fms_cm4p3_v201412  000000000040072C  Unknown               Unknown  Unknown
+fms_cm4p3_v201412  0000000003496F04  Unknown               Unknown  Unknown
+fms_cm4p3_v201412  000000000040059D  Unknown               Unknown  Unknown
+
+
+NOTE from PE     0: land_model_init: reading NetCDF restart "INPUT/land.res.tile1.nc"
+NOTE from PE     0: land_model_init: Using new land restart read
+NOTE from PE     0: MPP_IO_SET_STACK_SIZE: stack size set to    4147200.
+NOTE from PE     0: MPP_IO_SET_STACK_SIZE: stack size set to    9331200.
+NOTE from PE     0: soil_init: Using new soil restart read
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source
+fms_cm4p3_v201412  0000000002968FD7  cohort_io_mod_mp_         199  vegn_cohort_io.F90
+fms_cm4p3_v201412  000000000297EC6F  vegetation_mod_mp         314  vegetation.F90
+fms_cm4p3_v201412  0000000002809735  land_model_mod_mp         446  land_model.F90
+fms_cm4p3_v201412  000000000040A77C  coupler_main_IP_c        1624  coupler_main.F90
+fms_cm4p3_v201412  0000000000400B11  MAIN__                    454  coupler_main.F90
+fms_cm4p3_v201412  000000000040072C  Unknown               Unknown  Unknown
+fms_cm4p3_v201412  0000000003496F04  Unknown               Unknown  Unknown
+fms_cm4p3_v201412  000000000040059D  Unknown               Unknown  Unknown
+
+3) WORK NOw???. I have to change the filename form c96o1.tar to c96o1_v2.tar, and run quick_start_ch2.sh. Note that the content is exactly the same. 
+
+WARNING from PE    86: cana_step_1: grnd_T out of range: value=  0.000000000000000     at i=  59 j=  27 tile=   1 face=   6 time=1980-01-01 00:00:00
+
+4) WORK NOw???. I have to change the filename form c96o1.tar to c96o1_v2.tar, and run quick_start_ch2.sh. Note that the content is exactly the same. 
+
+cp -p ../CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903/cana.res.tile* .
+
+WARNING from PE    86: cana_step_1: grnd_T out of range: value=  0.000000000000000     at i=  59 j=  27 tile=   1 face=   6 time=1980-01-01 00:00:00
+
+5) WORK NOw!!! I have to change the filename form c96o1.tar to c96o1_v2.tar, and run quick_start_ch2.sh. Note that the content is exactly the same. 
+
+
+gaea7:/<4>Benjei.Tsuang/IC/c96o1 > cp -p ../CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903/soil* .
+0[527]0 gaea7:/<4>Benjei.Tsuang/IC/c96o1 > cp -p ../CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903/sno* .
+0[528]0 gaea7:/<4>Benjei.Tsuang/IC/c96o1 > cp -p ../CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903/lake* .
+0[529]0 gaea7:/<4>Benjei.Tsuang/IC/c96o1 > cp -p ../CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903/glac* .
+0[530]0 gaea7:/<4>Benjei.Tsuang/IC/c96o1 > cp -p ../CM4i_C96L48_LM3_OM4_1deg_grid_19810101.remapped.v20140903/river* .
+
+gaea7:/<4>Benjei.Tsuang/IC/c96o1 > tar -cvf ../c96o1_v4.tar .
+
+Time = 1980  1  1  0  0  0    ch4 = 1750.131333ppb  n2o =  315.553345ppb
+       co2  =  368.105212ppm  f11 =  264.326197ppt  f12 =  535.998564ppt
+       f113 =   82.765342ppt  f22 =  134.546101ppt
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_2250_12001400.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_1750_12001400.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_340_12001400.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_310_12001400.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_340_10701200.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_310_10701200.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_340_560630.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_310_560630.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_600_490850.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_360_490850.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_600_490630.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_360_490630.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_600_630700.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_360_630700.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_600_700850.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_360_700850.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_600_43um.nc
+NOTE from PE     0: lw_gases_stdtf_mod: Reading NetCDF formatted input data file: INPUT/cns_360_43um.nc
+        1980           1           1          12           0           0
+
+

@@ -1,0 +1,12 @@
+#frerun -S -q urgent -p ncrc2.intel -o -x  $HOME/model/tikal_201403/hindcast_MJO/input_nudg/hindcast.xml cm_nosstoverride
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_am4a1r1_2000climo
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_am4a1r1_2000climo_sstor
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_am4a1r1_2000climo_sst_uvtq_or
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_am4a1r1_2000climo_cntl
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_am4a1r1_2000climo_sstor_uvnudg
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto_miz.xml -t prod-openmp CM4_c96L48_am4f3r6_2000climo_sstor_pacific 
+frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto_miz.xml -t prod-openmp CM4_c96L48_am4f3r6_2000climo_sstor_atlantic
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_am4a1r1_2000climo_sst_rad_or
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_mom6
+#frerun -S -q urgent -p ncrc2.intel -o -x  CM4_proto.xml -t prod-openmp CM4_c96L48_am4a3_2000_ssor
+#frerun -S -q urgent -p ncrc2.intel -o -x  $HOME/model/tikal_201403/hindcast_MJO/input_nudg/hindcast.xml cm_atm_uv_nudg_only

@@ -1,0 +1,12 @@
+ ! NOAA/PMEL TMAP
+ ! FERRET v6.64  
+ !   - 12/07/10
+ ! 20-Jan-15 11:22     
+
+use "/lustre/f1/unswept/Baoqiang.Xiang/archive/ECDA/oda_sst/sst/data_orig/sst.day.mean.2000.v2.nc"
+sh d
+ fill/x=95w:80w/y=28:31/line/lev=(0 30 1) sst[l=25:31@ave,d=1]
+sh d
+use "/lustre/f1/unswept/Baoqiang.Xiang/archive/ECDA/oda_sst/sst/data_orig/sst.day.mean.2007.v2.nc"
+ fill/x=95w:80w/y=28:31/line/lev=(0 30 1) sst[l=25:31@ave,d=1]
+q

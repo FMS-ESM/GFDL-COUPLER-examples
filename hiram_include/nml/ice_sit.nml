@@ -1,0 +1,111 @@
+ &amip_interp_nml
+       data_set = reynolds_oi,
+       date_out_of_range = climo,
+       sst_pert = 0.0,
+/
+ &ice_model_nml
+! >> ice_sis
+!        spec_ice = .true.,
+!        alb_sno = 0.80
+!        t_range_melt = 10.0
+!        layout = $ice_layout
+!        io_layout = $ice_io_layout
+! << ice_sis
+! ice_sit >>
+       interp_method = 'bilinear',
+       layout = 0, 0,    ! C192
+       io_layout = $ice_io_layout       ! io_layout = 1,1,
+       use_climo_ice = .true.
+       use_climo_sst = .true.
+       do_sit = .true.
+!!! << sit
+/
+/
+
+
+ &sit_nml
+ !!! lrere   = .false.,
+       lobs_ocn_rerun  = .false.,
+       !!!lsit    = .false.,
+       trigsit%counter =           1,
+       trigsit%unit    = steps               ,
+       trigsit%adjustment      = exact               ,
+       trigsit%offset  =           0,
+       lsit_ice        = .true.,
+       lsit_salt       = .true.,
+       lzgodas = .false.,
+       ocn_tlz =   300.,     ! 5800.00000000000     , (3-d ocean model)
+       ocn_k1  =   20.,      !   40,                  (3-d ocean model)
+       lssst   = .true.,
+       sit_ice_option  =           2,
+       !!! sit_ice_option  =           0,
+       maskid  = 2,
+       lwoa_gfdl  = .true.,
+       lwoa_echam  = .false.,
+       lwoa0_echam   = .false.,
+       lwarning_msg    =           1,
+       lsice_nudg      = .false.,
+       lsit_lw = .false.,
+       !!! ssit_restore_time       = -9.000000000000000e+033,  ! nn
+       !!! usit_restore_time       = 86400.,                   ! 1d
+       !!! dsit_restore_time       = 86400.,                   ! 1d
+       ssit_restore_time       = 432000.,                      ! 5d
+       usit_restore_time       = 432000.,                      ! 5d
+       dsit_restore_time       = 432000.,                      ! 5d
+       locaf   = .false.,
+       locn    = .false.,
+       lopen_bound     = .false.,
+       lall_straits    = .true.,
+       lstrict_channel = .true.,
+       etopo_nres      =           1,
+       ocn_domain_w    =  0.000000000000000e+000,
+       ocn_domain_e    =   360.000000000000     ,
+       ocn_domain_s    =  -80.0000000000000     ,
+       ocn_domain_n    =   80.0000000000000     ,
+       ratio_dt_o2a    =   1.00000000000000     ,
+       ocn_couple_option       =           0,
+       high_current_killer     =           4,
+       locn_msg        = .false.,
+       ocn_lon_factor  =           1,
+       ocn_lat_factor  =           1,
+       trigocn%counter =           1,
+       trigocn%unit    = steps               ,
+       trigocn%adjustment      = exact               ,
+       trigocn%offset  =           0,
+       socn_restore_time       = -9.000000000000000e+033,
+       uocn_restore_time       = -9.000000000000000e+033,
+       docn_restore_time       = -9.000000000000000e+033,
+       nobox_nudg      =           0,
+       obox_restore_time       = -9.000000000000000e+033,
+       obox_nudg_flag  =           0,
+       obox_nudg_w     = 6*-999.000000000000       ,
+       obox_nudg_e     = 6*-999.000000000000       ,
+       obox_nudg_s     = 6*-999.000000000000       ,
+       obox_nudg_n     = 6*-999.000000000000       ,
+       kocn_dm0z       =   1.00000000000000     ,
+       ncarpet =           1,
+       kcsmag  =   1.00000000000000     ,
+       kalbw   =   1.00000000000000     ,
+       prw     =   1.00000000000000     ,
+       csl     =  -27.0000000000000     ,
+       por_min =  0.100000000000000     ,
+       csiced  =  0.000000000000000e+000,
+       bathy_default=-300., 
+       lasia   = .false.
+/
+
+&woa_nml
+    use_woa_timeseries = .false.
+!   use_woa_timeseries = $use_woa_timeseries
+!    woa_dataset_entry =  $baseDate,
+!                         $baseDate,
+!    woa_dataset_entry =  1 1 16 0 0 0,
+!                         1 1 16 0 0 0,
+!    family_names = "woa"
+!    in_family1 = T,T,
+   data_names = "ptemp", "salt"
+   data_units = "C", "PSU"
+!    time_varying_species = F, F,
+    filename = "WOA05_pottemp_salt.nc"
+    interp_method = 'bilinear',    
+/

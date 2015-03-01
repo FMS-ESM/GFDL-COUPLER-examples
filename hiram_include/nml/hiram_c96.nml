@@ -1,0 +1,123 @@
+ &atmosphere_nml
+       physics_window = 0,0 ! 0,1
+/
+
+ &cu_mo_trans_nml
+       transport_scheme='diffusive'
+       diff_norm = 2.0 ! consider also 2.5
+/
+
+ &fv_core_nml
+       layout   = $fv_layout
+       io_layout = $fv_io_layout
+       !!! layout   = 8,8
+       !!! io_layout = 1,1
+       npx      = 97,
+       npy      = 97,
+       ntiles   = 6,
+       npz      = 32,
+       n_sponge = 0
+       d2_bg_k1 = 0.08    !decr to 0.16 if night jet still too weak
+       d2_bg_k2 = 0.003! larger for higher resolutions
+       hord_mt = 10
+       hord_vt = 10
+       hord_tm = 10
+       hord_dp = 13
+       hord_tr = 13
+       fill_dp = .true.
+       kord_tm = -9
+       kord_mt =  9
+       kord_tr =  9
+       tau     = 0.
+       tau_h2o = 120.
+       k_split  = 1
+       n_split  = 10
+       !q_split = 10
+       nwat = 6
+       beta = 0.4
+       fv_sg_adj = 3600 !try
+       !d_con = 1.   ! source of problems again???
+       d_ext = 0.
+       nord = 2
+       d4_bg = 0.16
+       d2_bg = 0.
+       adjust_dry_mass = .false.,
+       consv_te = 1.,
+       fill = .F. !Taken care of by lin_microphysics now
+       print_freq = 6
+       warm_start = $warm_start
+/
+
+ &lin_cld_microphys_nml
+       ccn_l = 200. 
+       ccn_o = 100. 
+       do_subgrid_z = .F.
+       z_slope_liq = .T.
+       z_slope_ice = .T.
+       vi_fac = 0.7
+       qi0_crt = 2.0e-4    ! autoconversion, ice  --> snow
+       qs0_crt = 1.0e-3    ! default is 2.E-3
+       c_psaci = 1.E-2     ! accretion, ice  --> snow
+       c_pgacs = 2.E-3     ! accretion, snow --> graupel
+       rh_inc = 0.05
+       rh_inr = 0.15
+       rh_ins = 0.15
+       rthresh = 10e-6
+/
+
+ &mg_drag_nml
+       gmax  = 2.,
+       acoef = 1.,
+       do_conserve_energy = .true.,
+       source_of_sgsmtn = 'input/computed'
+/
+
+ &strat_cloud_nml
+       U00 = 0.80,
+       U00_profile = .true.,
+       rthresh =  10. !changed to be same as in lin_micro
+       Dmin = 1.0e-07,
+       n_land = 200.e6, 
+       n_ocean =100.e6,
+       diff_thresh = 0.1,
+       mc_thresh = 0.001,
+       eros_scale = 5.e-6,
+       eros_choice = .true.,
+       eros_scale_c = 5.e-5,
+       eros_scale_t = 5.e-4,
+       super_choice = .true.,
+       tracer_advec = .true.
+       vfact = 1.0
+       do_pdf_clouds = .true.
+       qthalfwidth    = 0.2
+/
+
+ &uw_conv_nml
+         iclosure        = 0,
+         rkm_sh          = 12.0, !12.0 better for higher resolution
+         cldhgt_max      = 50.e3,
+         do_uwcmt        = .false.,
+         apply_tendency  = .true.,
+         wmin_ratio      = 0.05,
+         do_lands        = .true.
+         landfact_m      = 0.5
+         gama            = 0.,
+         lochoice        = 0
+         lofactor0       = 0.6 ! see 5 oct 12 notes  ! higher for higher rez
+         do_deep         = .false.,
+         idpchoice       = 2
+         ! cbmf_dp_frac    = 0. !Now in deep_conv_nml and renamed cbmf_dp_frac1
+         do_rescale      = .true.
+/
+
+ &uw_plume_nml
+         rmaxfrac = 0.15
+         auto_th0 =  0.0012 !do not reduce below 0.001
+         tcrit    = -60.0,
+         frac_drs = 0.0
+         deltaqc0 = 0.5e-3 
+         do_pdfpcp= .true.
+         do_pmadjt= .true.
+         do_emmax = .true.
+         do_pnqv  = .true.
+/

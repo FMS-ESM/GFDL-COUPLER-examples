@@ -1,0 +1,44 @@
+ &cloud_spec_nml
+        force_use_of_temp_for_seed = .true.
+        cloud_type_form = 'strat'
+        do_rain = .false.
+        do_snow = .false.
+        do_graupel = .false.
+/
+
+  &deep_conv_nml
+         do_ppen_d      = .true.
+         do_pevap_d     = .false.
+/
+
+ &diag_cloud_nml
+       linvers = .false., lcnvcld = .false.,
+       l_theqv = .true., lomega = .true.,
+       low_lev_cloud_index = 16, nofog = .false.
+/
+
+ &diag_cloud_rad_nml
+       l_har_anvil   = .true.,
+       l_har_coldcld = .true.,
+       l_anom_abs_v  = .true.
+/
+
+ &moist_processes_nml
+        do_lin_cld_microphys = $do_lin_cld_microphys,   !=.true.,
+        do_lsc=.false., 
+        do_strat=.true., 
+        do_mca=.false., 
+        do_ras=.false.,
+        do_uw_conv=.true.,
+        do_donner_deep = .false.,
+        do_diag_clouds = .false., 
+        do_cmt=.true.,
+        cmt_mass_flux_source='uw',
+        do_rh_clouds = .false. ,
+        do_gust_cv = .false.
+/
+
+ &uw_closure_nml
+         rkfre    = 0.2
+         wcrit_min= 1.6
+/
