@@ -1,0 +1,3 @@
+[submodule "src/mom6"]
+	path = src/mom6
+	url = git@github.com:CommerceGov/NOAA-GFDL-MOM6.git
